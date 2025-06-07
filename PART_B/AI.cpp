@@ -1,3 +1,10 @@
+// This code is a complete C++ program for CPU performance prediction using linear regression.
+// It implements a linear regression model to predict CPU performance based on various features.
+// The model uses Tikhonov regularization to avoid overfitting and improve generalization.
+// It includes data loading, feature engineering, normalization, training, and evaluation.
+// The dataset used is the CPU performance dataset from UCI Machine Learning Repository.
+// The code is structured to be modular and reusable, with clear separation of concerns.
+// It also includes a grid search for hyperparameter tuning (regularization parameter).
 #include "../PART_A/Vector.h"
 #include "../PART_A/Matrix.h"
 #include "../PART_A/LinearSystem.h"

@@ -1,4 +1,5 @@
-// main.cpp
+// This is a simple C++ program that tests matrix and vector operations,
+// linear systems, positive definite symmetric linear systems, and Tikhonov regularization.
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
