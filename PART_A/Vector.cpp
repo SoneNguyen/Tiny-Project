@@ -1,16 +1,22 @@
 // Vector.cpp
 #include "Vector.h"
 
+// Cónstructor
+Vector::Vector(){
+    mSize = 0;
+    mData = nullptr;
+}
+
 // Constructor: create vector of given size and zero-initialize it
 Vector::Vector(int size) : mSize(size) {
-    std::cout << "[DEBUG] Creating vector of size: " << size << std::endl;
+    //std::cout << "[DEBUG] Creating vector of size: " << size << std::endl;
     assert(size > 0);
     mData = new double[mSize]();
 }
 
 // Copy constructor: deep copy the contents of another vector
 Vector::Vector(const Vector& other) : mSize(other.mSize) {
-    std::cout << "[DEBUG] Copy constructing vector of size: " << mSize << std::endl;
+    //std::cout << "[DEBUG] Copy constructing vector of size: " << mSize << std::endl;
     mData = new double[mSize];
     for (int i = 0; i < mSize; ++i) {
         mData[i] = other.mData[i];
@@ -19,7 +25,7 @@ Vector::Vector(const Vector& other) : mSize(other.mSize) {
 
 // Destructor: release memory
 Vector::~Vector() {
-    std::cout << "[DEBUG] Destroying vector of size: " << mSize << std::endl;
+    //std::cout << "[DEBUG] Destroying vector of size: " << mSize << std::endl;
     delete[] mData;
 }
 
@@ -27,7 +33,7 @@ Vector::~Vector() {
 Vector& Vector::operator=(const Vector& other) {
     if (this == &other) return *this;
 
-    std::cout << "[DEBUG] Assigning vector of size: " << other.mSize << std::endl;
+    //std::cout << "[DEBUG] Assigning vector of size: " << other.mSize << std::endl;
     delete[] mData;
 
     mSize = other.mSize;
@@ -97,10 +103,21 @@ int Vector::Size() const {
 
 // Print the vector
 void Vector::Print() const {
-    std::cout << "[";
+    //std::cout << "[";
     for (int i = 0; i < mSize; ++i) {
         std::cout << mData[i];
         if (i < mSize - 1) std::cout << ", ";
     }
-    std::cout << "]\n";
+    //std::cout << "]\n";
+}
+
+void Vector::resize(int size){
+    if (size == mSize) {return;}
+
+    delete[] mData;
+    mSize = size;
+    mData = new double[mSize];
+    for (int i = 0; i < size; i++){
+        mData[i] = 0;
+    }
 }

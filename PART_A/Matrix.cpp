@@ -7,7 +7,7 @@
 // Constructor: initialize matrix with zeros
 Matrix::Matrix(int rows, int cols) : mNumRows(rows), mNumCols(cols) {
     assert(rows > 0 && cols > 0);
-    std::cout << "[DEBUG] Creating matrix: " << rows << "x" << cols << std::endl;
+    //std::cout << "[DEBUG] Creating matrix: " << rows << "x" << cols << std::endl;
     mData = new double*[mNumRows];
     for (int i = 0; i < mNumRows; ++i) {
         mData[i] = new double[mNumCols]();
@@ -28,7 +28,7 @@ Matrix::Matrix(const Matrix& other) : mNumRows(other.mNumRows), mNumCols(other.m
 
 // Destructor
 Matrix::~Matrix() {
-    std::cout << "[DEBUG] Destroying matrix: " << mNumRows << "x" << mNumCols << std::endl;
+    //std::cout << "[DEBUG] Destroying matrix: " << mNumRows << "x" << mNumCols << std::endl;
     for (int i = 0; i < mNumRows; ++i) {
         delete[] mData[i];
     }
@@ -63,7 +63,7 @@ const double& Matrix::operator()(int i, int j) const {
 Matrix& Matrix::operator=(const Matrix& other) {
     if (this == &other) return *this;
 
-    std::cout << "[DEBUG] Assigning matrix: " << other.mNumRows << "x" << other.mNumCols << std::endl;
+    //std::cout << "[DEBUG] Assigning matrix: " << other.mNumRows << "x" << other.mNumCols << std::endl;
 
     // Clean old data
     for (int i = 0; i < mNumRows; ++i) {
@@ -129,7 +129,7 @@ Matrix Matrix::operator*(const Matrix& other) const {
 
 // Transpose
 Matrix Matrix::Transpose() const {
-    std::cout << "[DEBUG] Transposing " << mNumRows << "x" << mNumCols << " matrix" << std::endl;
+    //std::cout << "[DEBUG] Transposing " << mNumRows << "x" << mNumCols << " matrix" << std::endl;
     Matrix result(mNumCols, mNumRows);
     for (int i = 0; i < mNumRows; ++i) {
         for (int j = 0; j < mNumCols; ++j) {
@@ -217,7 +217,7 @@ Matrix Matrix::PseudoInverse() const {
 
 // Matrix × Vector multiplication
 Vector operator*(const Matrix& A, const Vector& v) {
-    std::cout << "[DEBUG] Matrix-vector mult: " << A.Rows() << "x" << A.Cols() << " * " << v.Size() << std::endl;
+    //std::cout << "[DEBUG] Matrix-vector mult: " << A.Rows() << "x" << A.Cols() << " * " << v.Size() << std::endl;
     assert(A.Cols() == v.Size());
     Vector result(A.Rows());
     for (int i = 1; i <= A.Rows(); ++i) {

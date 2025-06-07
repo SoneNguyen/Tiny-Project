@@ -1,5 +1,7 @@
 // Vector.h
-#pragma once
+#ifndef VECTOR_H
+#define VECTOR_H
+
 #include <cassert>   // for assert()
 #include <iostream>  // for printing
 
@@ -9,6 +11,9 @@ private:
     double* mData;    // Pointer to dynamically allocated array of doubles
 
 public:
+    // Constructor
+    Vector();
+
     // Constructor: Allocate memory for vector
     Vector(int size);
 
@@ -33,7 +38,11 @@ public:
     // Utility functions
     int Size() const;       // Returns the size
     void Print() const;     // For printing the vector
+
+    // Resize method to dynamically alter vector size during runtime
+    void resize(int size);
 };
 
 // dot product
 double operator*(const Vector& a, const Vector& b);
+#endif

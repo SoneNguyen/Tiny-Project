@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MATRIX_H
+#define MATRIX_H
+
 #include "Vector.h"
 #include <cassert>   // for assert()
 #include <iostream>  // for printing
@@ -60,3 +62,5 @@ Vector operator*(const Matrix& A, const Vector& v);
 // Matrix × scalar multiplication
 Matrix operator*(const Matrix& A, double scalar);
 Matrix operator*(double scalar, const Matrix& A);  // commutative scalar multiplication
+
+#endif
